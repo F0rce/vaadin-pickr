@@ -155,10 +155,11 @@ class LitPickr extends LitElement {
       }));
     });
 
-    this.pickr.on("swatchselect", color => {
+    this.pickr.on("swatchselect", (color, instance) => {
       this.dispatchEvent(new CustomEvent("pickr-swatchselect", {
         detail: {
           color: this._getColorsObject(color),
+          colorRepresentation: instance.getColorRepresentation(),
         },
       }));
     });
@@ -342,7 +343,7 @@ class LitPickr extends LitElement {
   /** @private */
   _getColorsObject(color) {
     // remove alpha from returned colors
-    if (this._settings.lockOpacity) {
+    if (Boolean(this._settings.lockOpacity)) {
 
       const _mapper = (original, next) => (precision = -1) => {
         return next(~precision ? original.map(v => Number(v.toFixed(precision))) : original);

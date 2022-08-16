@@ -6,11 +6,13 @@ import org.vaadin.addons.de.f0rce.pickr.settings.PickrInteractions;
 import org.vaadin.addons.de.f0rce.pickr.settings.PickrSettings;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
+import com.vaadin.flow.component.dialog.Dialog;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.component.upload.UploadI18N;
 import com.vaadin.flow.dom.ThemeList;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.Lumo;
@@ -44,8 +46,8 @@ public class TestView extends VerticalLayout {
     ps.setDefaultRepresentation(PickrColorRepresentation.HEX);
     ps.getComponents().setInteraction(interactions);
     ps.setPosition(PickrPosition.BOTTOM_START);
-    ps.setOutputPrecision(1);
-    ps.setLockOpacity(true);
+    ps.setOutputPrecision(0);
+    //    ps.setLockOpacity(true);
 
     Pickr paperSlider = new Pickr(ps);
     this.setSizeFull();
@@ -78,6 +80,18 @@ public class TestView extends VerticalLayout {
           paperSlider.setEnabled(true);
         });
 
-    add(themeToggle, p, b, tf);
+    UploadI18N u18 = new UploadI18N();
+
+    Dialog d = new Dialog();
+    d.setHeight("300px");
+    d.setWidth("700px");
+
+    Button openDialog = new Button("Open Dialog");
+    openDialog.addClickListener(
+        event -> {
+          d.open();
+        });
+
+    add(themeToggle, p, b, tf, openDialog, d);
   }
 }

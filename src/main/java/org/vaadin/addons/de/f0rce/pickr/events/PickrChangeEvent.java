@@ -30,10 +30,20 @@ public class PickrChangeEvent extends ComponentEvent<Pickr> {
         PickrColorRepresentation.findByColorRepresentation(colorRepresentation);
   }
 
+  /**
+   * Returns the changed (but not saved) {@link PickrColor}.
+   *
+   * @return {@link PickrColor}
+   */
   public PickrColor getColor() {
     return this.color;
   }
 
+  /**
+   * Returns the current {@link PickrColorRepresentation} selected by the user.
+   *
+   * @return {@link PickrColorRepresentation}
+   */
   public PickrColorRepresentation getColorRepresentation() {
     return this.colorRepresentation;
   }

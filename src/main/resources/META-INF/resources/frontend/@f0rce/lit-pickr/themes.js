@@ -24,7 +24,6 @@ export const themes = css`
   width: 100%;
   padding: 0.5em;
   cursor: pointer;
-  font-family: var(--lumo-font-family);
   border-radius: var(--lumo-border-radius-m);
   background: url('data:image/svg+xml;utf8, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" stroke="%2342445A" stroke-width="5px" stroke-linecap="round"><path d="M45,45L5,5"></path><path d="M45,5L5,45"></path></svg>')
     no-repeat center;
@@ -107,16 +106,25 @@ export const themes = css`
   display: flex;
   flex-direction: column;
   z-index: 10000;
-  border-radius: 0.1em;
   background: var(--lumo-base-color);
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.3s, visibility 0s 0.3s;
   font-family: var(--lumo-font-family);
-  box-shadow: var(--lumo-box-shadow-m);
+  font-size: var(--lumo-font-size-m)
+  font-weight: 400;
+  line-height: var(--lumo-line-height-m);
+  letter-spacing: 0;
+  text-transform: none;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  outline: none;
+  box-shadow: 0 0 0 1px var(--lumo-shade-5pct), var(--lumo-box-shadow-xl);
   left: 0;
   top: 0;
   border-radius: var(--lumo-border-radius-m);
+  -webkit-tap-highlight-color: transparent;
 }
 .pcr-app.visible {
   transition: opacity 0.3s;
@@ -197,8 +205,8 @@ export const themes = css`
   font-size: var(--lumo-font-size-xxs);
   text-align: center;
   cursor: pointer;
-  color: #75797e;
-  background: #f1f3f4;
+  color: var(--lumo-body-text-color)
+  background-color: var(--lumo-contrast-10pct);
   border-radius: 0.15em;
   transition: all 0.15s;
   padding: 0.45em 0.5em;
