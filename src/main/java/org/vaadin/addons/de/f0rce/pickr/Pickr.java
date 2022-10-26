@@ -3,7 +3,6 @@ package org.vaadin.addons.de.f0rce.pickr;
 import java.util.ArrayList;
 import java.util.Arrays;
 import org.vaadin.addons.de.f0rce.pickr.enums.PickrColorRepresentation;
-import org.vaadin.addons.de.f0rce.pickr.enums.PickrTheme;
 import org.vaadin.addons.de.f0rce.pickr.events.PickrCancelEvent;
 import org.vaadin.addons.de.f0rce.pickr.events.PickrChangeEvent;
 import org.vaadin.addons.de.f0rce.pickr.events.PickrClearEvent;
@@ -32,7 +31,6 @@ import com.vaadin.flow.shared.Registration;
 @SuppressWarnings("serial")
 @Tag("lit-pickr")
 @NpmPackage(value = "@simonwep/pickr", version = "1.8.2")
-@NpmPackage(value = "lit", version = "2.2.8")
 @JsModule("./@f0rce/lit-pickr/lit-pickr.js")
 public class Pickr extends Component implements HasSize {
 
@@ -55,9 +53,6 @@ public class Pickr extends Component implements HasSize {
       }
       if (!this.swatches.isEmpty()) {
         this.setSwatches(this.swatches.toArray(String[]::new));
-      }
-      if (this.colorRepresentation != null) {
-        this.setColorRepresentation(this.colorRepresentation);
       }
       hasBeenDetached = false;
     }
@@ -101,10 +96,12 @@ public class Pickr extends Component implements HasSize {
     this.getElement().setProperty("settings", gson.toJson(this.settings));
   }
 
+  // events that update visiblilty of the color picker dialog
   private void updateVisibility(IPickrVisibilityChange event) {
     this.open = event.isVisible();
   }
 
+  // events that update the color
   private void updateColor(IPickrColorChange event) {
     this.color = event.getColor();
     this.colorRepresentation = event.getColorRepresentation();
@@ -269,8 +266,9 @@ public class Pickr extends Component implements HasSize {
    * @param colorRepresentation {@link PickrColorRepresentation}
    */
   public void setColorRepresentation(PickrColorRepresentation colorRepresentation) {
+    this.colorRepresentation = colorRepresentation;
     this.getElement()
-        .callJsFunction("setColorRepresentation", colorRepresentation.getColorRepresentation());
+        .setProperty("colorRepresentation", colorRepresentation.getColorRepresentation());
   }
 
   /**
@@ -356,7 +354,7 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * Disables the precision (rounding) of the output string. Same as <code>.setOutputPrecision(-1)
+   * Disables the precision (rounding) of the output string. Same as <code>setOutputPrecision(-1)
    * </code>.
    */
   public void disableOutputPrecision() {
@@ -364,7 +362,7 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * Update the {@link PickrSettings} during runtime (to change the {@link PickrTheme} for example).
+   * Update the {@link PickrSettings} during runtime.
    *
    * @param settings {@link PickrSettings}
    */

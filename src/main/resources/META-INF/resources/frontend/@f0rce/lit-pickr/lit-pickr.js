@@ -17,14 +17,16 @@ class LitPickr extends LitElement {
     return {
       settings: { type: String },
       enabled: { type: Boolean },
-      outputPrecision: { type: Number }
+      outputPrecision: { type: Number },
+      colorRepresentation: { type: String }
     };
   }
 
   constructor() {
     super();
-    this.outputPrecision = -1;
     this.enabled = true;
+    this.outputPrecision = -1;
+    this.colorRepresentation = null;
   }
 
   static get styles() {
@@ -203,6 +205,14 @@ class LitPickr extends LitElement {
     }
   }
 
+  colorRepresentationChanged() {
+    if (this.pickr == undefined) {
+      return;
+    }
+
+    this.pickr.setColorRepresentation(this.colorRepresentation);
+  }
+
   setColor(color, silent) {
     if (this.pickr == undefined) {
       this.addEventListener(
@@ -252,23 +262,6 @@ class LitPickr extends LitElement {
   /** @private */
   _hide() {
     this.pickr.hide();
-  }
-
-  setColorRepresentation(color) {
-    if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._setColorRepresentation(color),
-        { once: true }
-      );
-    } else {
-      this._setColorRepresentation(color);
-    }
-  }
-
-  /** @private */
-  _setColorRepresentation(color) {
-    this.pickr.setColorRepresentation(color);
   }
 
   applyColor(silent) {
