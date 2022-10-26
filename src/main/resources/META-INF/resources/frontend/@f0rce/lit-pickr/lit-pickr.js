@@ -7,8 +7,8 @@ Pickr.prototype.setSwatches = function (swatches) {
   for (let i = this._swatchColors.length - 1; i > -1; i--) {
     this.removeSwatch(i);
   }
-  swatches.forEach(swatch => this.addSwatch(swatch));
-}
+  swatches.forEach((swatch) => this.addSwatch(swatch));
+};
 
 import { themes } from "./themes";
 
@@ -18,7 +18,7 @@ class LitPickr extends LitElement {
       settings: { type: String },
       enabled: { type: Boolean },
       outputPrecision: { type: Number },
-      colorRepresentation: { type: String }
+      colorRepresentation: { type: String },
     };
   }
 
@@ -48,9 +48,7 @@ class LitPickr extends LitElement {
         id="pickr-container"
         style="height: 100%; width: 100%; position: relative;"
       >
-        <div
-          id="pickr"
-        ></div>
+        <div id="pickr"></div>
       </div>
     `;
   }
@@ -98,72 +96,88 @@ class LitPickr extends LitElement {
       this.enabled = !parsed.disabled;
 
       resolve(parsed);
-    })
+    });
   }
 
   initializePickr() {
     this.pickr = new Pickr(this._settings);
 
-    this.pickr.on("init", instance => {
-      this.dispatchEvent(new CustomEvent("pickr-init", {
-        detail: {
-          color: this._getColorsObject(instance.getColor()),
-          colorRepresentation: instance.getColorRepresentation(),
-        },
-      }));
+    this.pickr.on("init", (instance) => {
+      this.dispatchEvent(
+        new CustomEvent("pickr-init", {
+          detail: {
+            color: this._getColorsObject(instance.getColor()),
+            colorRepresentation: instance.getColorRepresentation(),
+          },
+        })
+      );
     });
 
     this.pickr.on("hide", () => {
-      this.dispatchEvent(new CustomEvent("pickr-hide", {
-        detail: {},
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-hide", {
+          detail: {},
+        })
+      );
     });
 
-    this.pickr.on("show", color => {
-      this.dispatchEvent(new CustomEvent("pickr-show", {
-        detail: {
-          color: this._getColorsObject(color),
-        },
-      }));
+    this.pickr.on("show", (color) => {
+      this.dispatchEvent(
+        new CustomEvent("pickr-show", {
+          detail: {
+            color: this._getColorsObject(color),
+          },
+        })
+      );
     });
 
     this.pickr.on("save", (color, instance) => {
-      this.dispatchEvent(new CustomEvent("pickr-save", {
-        detail: {
-          color: this._getColorsObject(color),
-          colorRepresentation: instance.getColorRepresentation(),
-        },
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-save", {
+          detail: {
+            color: this._getColorsObject(color),
+            colorRepresentation: instance.getColorRepresentation(),
+          },
+        })
+      );
     });
 
     this.pickr.on("clear", () => {
-      this.dispatchEvent(new CustomEvent("pickr-clear", {
-        detail: {},
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-clear", {
+          detail: {},
+        })
+      );
     });
 
     this.pickr.on("change", (color, source, instance) => {
-      this.dispatchEvent(new CustomEvent("pickr-change", {
-        detail: {
-          color: this._getColorsObject(color),
-          colorRepresentation: instance.getColorRepresentation(),
-        },
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-change", {
+          detail: {
+            color: this._getColorsObject(color),
+            colorRepresentation: instance.getColorRepresentation(),
+          },
+        })
+      );
     });
 
     this.pickr.on("cancel", () => {
-      this.dispatchEvent(new CustomEvent("pickr-cancel", {
-        detail: {},
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-cancel", {
+          detail: {},
+        })
+      );
     });
 
     this.pickr.on("swatchselect", (color, instance) => {
-      this.dispatchEvent(new CustomEvent("pickr-swatchselect", {
-        detail: {
-          color: this._getColorsObject(color),
-          colorRepresentation: instance.getColorRepresentation(),
-        },
-      }));
+      this.dispatchEvent(
+        new CustomEvent("pickr-swatchselect", {
+          detail: {
+            color: this._getColorsObject(color),
+            colorRepresentation: instance.getColorRepresentation(),
+          },
+        })
+      );
     });
   }
 
@@ -176,7 +190,7 @@ class LitPickr extends LitElement {
     this.pickr = undefined;
 
     const pickrDiv = document.createElement("div");
-    pickrDiv.id = "pickr"
+    pickrDiv.id = "pickr";
     this.pickrContainerDiv.appendChild(pickrDiv);
     this.pickrDiv = this.shadowRoot.getElementById("pickr");
 
@@ -215,11 +229,9 @@ class LitPickr extends LitElement {
 
   setColor(color, silent) {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._setColor(color, silent),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._setColor(color, silent), {
+        once: true,
+      });
     } else {
       this._setColor(color, silent);
     }
@@ -232,11 +244,7 @@ class LitPickr extends LitElement {
 
   show() {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._show(),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._show(), { once: true });
     } else {
       this._show();
     }
@@ -249,11 +257,7 @@ class LitPickr extends LitElement {
 
   hide() {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._hide(),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._hide(), { once: true });
     } else {
       this._hide();
     }
@@ -266,11 +270,9 @@ class LitPickr extends LitElement {
 
   applyColor(silent) {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._applyColor(silent),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._applyColor(silent), {
+        once: true,
+      });
     } else {
       this._applyColor(silent);
     }
@@ -283,11 +285,9 @@ class LitPickr extends LitElement {
 
   addSwatch(color) {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._addSwatch(color),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._addSwatch(color), {
+        once: true,
+      });
     } else {
       this._addSwatch(color);
     }
@@ -300,11 +300,9 @@ class LitPickr extends LitElement {
 
   removeSwatch(index) {
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._removeSwatch(index),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._removeSwatch(index), {
+        once: true,
+      });
     } else {
       this._removeSwatch(index);
     }
@@ -318,11 +316,9 @@ class LitPickr extends LitElement {
   setSwatches(swatches) {
     const array = JSON.parse(swatches);
     if (this.pickr == undefined) {
-      this.addEventListener(
-        "pickr-init",
-        () => this._setSwatches(array),
-        { once: true }
-      );
+      this.addEventListener("pickr-init", () => this._setSwatches(array), {
+        once: true,
+      });
     } else {
       this._setSwatches(array);
     }
@@ -337,31 +333,50 @@ class LitPickr extends LitElement {
   _getColorsObject(color) {
     // remove alpha from returned colors
     if (Boolean(this._settings.lockOpacity)) {
+      const _mapper =
+        (original, next) =>
+        (precision = -1) => {
+          return next(
+            ~precision
+              ? original.map((v) => Number(v.toFixed(precision)))
+              : original
+          );
+        };
 
-      const _mapper = (original, next) => (precision = -1) => {
-        return next(~precision ? original.map(v => Number(v.toFixed(precision))) : original);
-      };
-
-      const hsl = _mapper(color.toHSLA(), arr => `hsl(${arr[0]}, ${arr[1]}%, ${arr[2]}%)`);
-      const hsv = _mapper(color.toHSVA(), arr => `hsv(${arr[0]}, ${arr[1]}%, ${arr[2]}%)`);
-      const rgb = _mapper(color.toRGBA(), arr => `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`);
+      const hsl = _mapper(
+        color.toHSLA(),
+        (arr) => `hsl(${arr[0]}, ${arr[1]}%, ${arr[2]}%)`
+      );
+      const hsv = _mapper(
+        color.toHSVA(),
+        (arr) => `hsv(${arr[0]}, ${arr[1]}%, ${arr[2]}%)`
+      );
+      const rgb = _mapper(
+        color.toRGBA(),
+        (arr) => `rgb(${arr[0]}, ${arr[1]}, ${arr[2]})`
+      );
 
       return {
-        cmyk: color == null ? null : color.toCMYK().toString(this.outputPrecision),
+        cmyk:
+          color == null ? null : color.toCMYK().toString(this.outputPrecision),
         hexa: color == null ? null : color.toHEXA().toString(),
         hsla: color == null ? null : hsl(this.outputPrecision),
         hsva: color == null ? null : hsv(this.outputPrecision),
         rgba: color == null ? null : rgb(this.outputPrecision),
-      }
+      };
     }
 
     return {
-      cmyk: color == null ? null : color.toCMYK().toString(this.outputPrecision),
+      cmyk:
+        color == null ? null : color.toCMYK().toString(this.outputPrecision),
       hexa: color == null ? null : color.toHEXA().toString(),
-      hsla: color == null ? null : color.toHSLA().toString(this.outputPrecision),
-      hsva: color == null ? null : color.toHSVA().toString(this.outputPrecision),
-      rgba: color == null ? null : color.toRGBA().toString(this.outputPrecision)
-    }
+      hsla:
+        color == null ? null : color.toHSLA().toString(this.outputPrecision),
+      hsva:
+        color == null ? null : color.toHSVA().toString(this.outputPrecision),
+      rgba:
+        color == null ? null : color.toRGBA().toString(this.outputPrecision),
+    };
   }
 }
 
