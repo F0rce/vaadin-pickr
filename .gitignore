@@ -90,6 +90,21 @@ local.properties
 hs_err_pid*
 replay_pid*
 
+### Linux ###
+*~
+
+# temporary files which can be created if a process still has a handle open of a deleted file
+.fuse_hidden*
+
+# KDE directory preferences
+.directory
+
+# Linux trash folder which might appear on any partition or disk
+.Trash-*
+
+# .nfs files are created when an open file is removed but is still being accessed
+.nfs*
+
 ### macOS ###
 # General
 .DS_Store
@@ -284,12 +299,21 @@ dist
 ### Vaadin ###
 .vaadin-designer
 .designer
-.idea/
-*.iml
-pnpmfile.js
 drivers/
 error-screenshots/
-webpack.generated.js
+frontend/generated
+frontend/index.html
+.npmrc
+.pnpmfile.cjs
+package.json
+package-lock.json
+pnpm-lock.yaml
+vite.generated.ts
+vite.config.ts
+types.d.ts
+tsconfig.json
+src/main/resources/META-INF/resources/frontend/generated
+src/main/resources/META-INF/resources/frontend/index.html
 
 ### VisualStudioCode ###
 .vscode/*
@@ -309,12 +333,6 @@ webpack.generated.js
 # Ignore all local history of files
 .history
 .ionide
-
-# Support for Project snippet scope
-.vscode/*.code-snippets
-
-# Ignore code-workspaces
-*.code-workspace
 
 ### Windows ###
 # Windows thumbnail cache files
