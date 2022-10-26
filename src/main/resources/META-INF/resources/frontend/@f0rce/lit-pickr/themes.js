@@ -67,7 +67,7 @@ export const themes = css`
   opacity: 0;
 }
 .pickr .pcr-button.clear:focus {
-  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.85), 0 0 0 3px var(--pcr-color);
+  box-shadow: 0 0 0 1px var(--lumo-base-color), 0 0 0 3px var(--pcr-color);
 }
 .pickr .pcr-button.disabled {
   cursor: not-allowed;
@@ -111,7 +111,7 @@ export const themes = css`
   visibility: hidden;
   transition: opacity 0.3s, visibility 0s 0.3s;
   font-family: var(--lumo-font-family);
-  font-size: var(--lumo-font-size-m)
+  font-size: var(--lumo-font-size-m);
   font-weight: 400;
   line-height: var(--lumo-line-height-m);
   letter-spacing: 0;
@@ -205,9 +205,9 @@ export const themes = css`
   font-size: var(--lumo-font-size-xxs);
   text-align: center;
   cursor: pointer;
-  color: var(--lumo-body-text-color)
+  color: var(--lumo-primary-text-color);
   background-color: var(--lumo-contrast-10pct);
-  border-radius: 0.15em;
+  border-radius: var(--lumo-border-radius);
   transition: all 0.15s;
   padding: 0.45em 0.5em;
   margin-top: 0.75em;
@@ -219,13 +219,13 @@ export const themes = css`
     box-shadow: var(--lumo-primary-contrast-color) 0px 0px 0px 1px, var(--lumo-primary-color) 0px 0px 0px 3px
 }
 .pcr-app .pcr-interaction .pcr-result {
-  color: #75797e;
+  color: var(--lumo-body-text-color);
   text-align: left;
   flex: 1 1 8em;
   min-width: 8em;
   transition: all 0.2s;
   border-radius: 0.15em;
-  background: #f1f3f4;
+  background-color: var(--lumo-contrast-10pct);
   cursor: text;
 }
 .pcr-app .pcr-interaction .pcr-result::-moz-selection {
@@ -236,6 +236,19 @@ export const themes = css`
   background: var(--lumo-primary-text-color);
   color: var(--lumo-primary-contrast-color);
 }
+
+.pcr-app .pcr-interaction .pcr-result::after {
+  flex: 1 1 8em;
+  min-width: 8em;
+  content: "";
+  border-radius: inherit;
+  pointer-events: none;
+  background-color: var(--lump-contrast-50pct);
+  opacity: 0;
+  transition: transform 0.15s, opacity 0.2s;
+  transform-origin: 100% 0;
+}
+
 .pcr-app .pcr-interaction .pcr-type.active {
   color: var(--lumo-primary-contrast-color);
   background:  var(--lumo-primary-color);
