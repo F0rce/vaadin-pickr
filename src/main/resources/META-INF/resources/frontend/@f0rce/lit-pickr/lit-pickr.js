@@ -95,8 +95,55 @@ class LitPickr extends LitElement {
 
       this.enabled = !parsed.disabled;
 
+      if ("i18n" in parsed) {
+        const i18n = this.rebuildI18N(parsed.i18n);
+
+        delete parsed.i18n;
+        parsed.i18n = i18n;
+      }
+
       resolve(parsed);
     });
+  }
+
+  rebuildI18N(i18n) {
+    var rebuiltI18N = {};
+
+    if ("ui" in i18n) {
+      const oldUI = i18n.ui;
+
+      for (const key in oldUI) {
+        rebuiltI18N[`ui:${key}`] = oldUI[key];
+      }
+    }
+
+    if ("button" in i18n) {
+      const oldButton = i18n.button;
+
+      for (const key in oldButton) {
+        var saveKey = key;
+        if (saveKey.indexOf("__") !== -1) {
+          saveKey = saveKey.replace("__", "-");
+        }
+        rebuiltI18N[`btn:${saveKey}`] = oldButton[key];
+      }
+    }
+
+    if ("aria" in i18n) {
+      const oldAria = i18n.aria;
+
+      for (const key in oldAria) {
+        if (key == "ariaButton") {
+          for (const ariaKey in oldAria[key]) {
+            rebuiltI18N[`aria:btn:${ariaKey}`] = oldAria[key][ariaKey];
+          }
+        } else {
+          rebuiltI18N[`aria:${key}`] = oldAria[key];
+        }
+      }
+    }
+
+    return rebuiltI18N;
   }
 
   initializePickr() {

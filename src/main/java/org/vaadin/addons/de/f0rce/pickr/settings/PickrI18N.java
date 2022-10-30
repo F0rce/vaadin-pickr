@@ -1,188 +1,199 @@
 package org.vaadin.addons.de.f0rce.pickr.settings;
 
-import com.google.gson.annotations.SerializedName;
+import org.vaadin.addons.de.f0rce.pickr.Pickr;
 
+/** The I18N helper file for the {@link Pickr} component. */
 public class PickrI18N {
+  private PickrUI ui;
+  private PickrButton button;
+  private PickrAria aria;
 
-  @SerializedName("ui:dialog")
-  private String uiDialog;
+  public static class PickrUI {
+    private String dialog;
 
-  @SerializedName("btn:toggle")
-  private String btnToggle;
+    public String getDialog() {
+      return this.dialog;
+    }
 
-  @SerializedName("btn:swatch")
-  private String btnSwatch;
-
-  @SerializedName("btn:last-color")
-  private String btnLastColor;
-
-  @SerializedName("btn:save")
-  private String btnSave;
-
-  @SerializedName("btn:cancel")
-  private String btnCancel;
-
-  @SerializedName("btn:clear")
-  private String btnClear;
-
-  @SerializedName("aria:btn:save")
-  private String ariaBtnSave;
-
-  @SerializedName("aria:btn:cancel")
-  private String ariaBtnCancel;
-
-  @SerializedName("aria:btn:clear")
-  private String ariaBtnClear;
-
-  @SerializedName("aria:input")
-  private String ariaInput;
-
-  @SerializedName("aria:palette")
-  private String ariaPalette;
-
-  @SerializedName("aria:hue")
-  private String ariaHue;
-
-  @SerializedName("aria:opacity")
-  private String ariaOpacity;
-
-  /** @return the uiDialog */
-  public String getUiDialog() {
-    return uiDialog;
+    public PickrUI setDialog(String dialog) {
+      this.dialog = dialog;
+      return this;
+    }
   }
 
-  /** @param uiDialog the uiDialog to set */
-  public void setUiDialog(String uiDialog) {
-    this.uiDialog = uiDialog;
+  public static class PickrButton {
+    private String toggle;
+    private String swatch;
+    private String last__color;
+    private String save;
+    private String cancel;
+    private String clear;
+
+    public String getToggle() {
+      return this.toggle;
+    }
+
+    public PickrButton setToggle(String toggle) {
+      this.toggle = toggle;
+      return this;
+    }
+
+    public String getSwatch() {
+      return this.swatch;
+    }
+
+    public PickrButton setSwatch(String swatch) {
+      this.swatch = swatch;
+      return this;
+    }
+
+    public String getLastColor() {
+      return this.last__color;
+    }
+
+    public PickrButton setLastColor(String lastColor) {
+      this.last__color = lastColor;
+      return this;
+    }
+
+    public String getSave() {
+      return this.save;
+    }
+
+    public PickrButton setSave(String save) {
+      this.save = save;
+      return this;
+    }
+
+    public String getCancel() {
+      return this.cancel;
+    }
+
+    public PickrButton setCancel(String cancel) {
+      this.cancel = cancel;
+      return this;
+    }
+
+    public String getClear() {
+      return this.clear;
+    }
+
+    public PickrButton setClear(String clear) {
+      this.clear = clear;
+      return this;
+    }
   }
 
-  /** @return the btnToggle */
-  public String getBtnToggle() {
-    return btnToggle;
+  public static class PickrAria {
+    private PickrAriaButton ariaButton;
+    private String input;
+    private String palette;
+    private String hue;
+    private String opacity;
+
+    public PickrAriaButton getButton() {
+      return this.ariaButton;
+    }
+
+    public PickrAria setButton(PickrAriaButton ariaButton) {
+      this.ariaButton = ariaButton;
+      return this;
+    }
+
+    public String getInput() {
+      return this.input;
+    }
+
+    public PickrAria setInput(String input) {
+      this.input = input;
+      return this;
+    }
+
+    public String getPalette() {
+      return this.palette;
+    }
+
+    public PickrAria setPalette(String palette) {
+      this.palette = palette;
+      return this;
+    }
+
+    public String getHue() {
+      return this.hue;
+    }
+
+    public PickrAria setHue(String hue) {
+      this.hue = hue;
+      return this;
+    }
+
+    public String getOpacity() {
+      return this.opacity;
+    }
+
+    public PickrAria setOpacity(String opacity) {
+      this.opacity = opacity;
+      return this;
+    }
+
+    public static class PickrAriaButton {
+      private String save;
+      private String cancel;
+      private String clear;
+
+      public String getSave() {
+        return this.save;
+      }
+
+      public PickrAriaButton setSave(String save) {
+        this.save = save;
+        return this;
+      }
+
+      public String getCancel() {
+        return this.cancel;
+      }
+
+      public PickrAriaButton setCancel(String cancel) {
+        this.cancel = cancel;
+        return this;
+      }
+
+      public String getClear() {
+        return this.clear;
+      }
+
+      public PickrAriaButton setClear(String clear) {
+        this.clear = clear;
+        return this;
+      }
+    }
   }
 
-  /** @param btnToggle the btnToggle to set */
-  public void setBtnToggle(String btnToggle) {
-    this.btnToggle = btnToggle;
+  public PickrUI getUI() {
+    return this.ui;
   }
 
-  /** @return the btnSwatch */
-  public String getBtnSwatch() {
-    return btnSwatch;
+  public PickrI18N setUI(PickrUI ui) {
+    this.ui = ui;
+    return this;
   }
 
-  /** @param btnSwatch the btnSwatch to set */
-  public void setBtnSwatch(String btnSwatch) {
-    this.btnSwatch = btnSwatch;
+  public PickrButton getButton() {
+    return this.button;
   }
 
-  /** @return the btnLastColor */
-  public String getBtnLastColor() {
-    return btnLastColor;
+  public PickrI18N setButton(PickrButton button) {
+    this.button = button;
+    return this;
   }
 
-  /** @param btnLastColor the btnLastColor to set */
-  public void setBtnLastColor(String btnLastColor) {
-    this.btnLastColor = btnLastColor;
+  public PickrAria getAria() {
+    return this.aria;
   }
 
-  /** @return the btnSave */
-  public String getBtnSave() {
-    return btnSave;
-  }
-
-  /** @param btnSave the btnSave to set */
-  public void setBtnSave(String btnSave) {
-    this.btnSave = btnSave;
-  }
-
-  /** @return the btnCancel */
-  public String getBtnCancel() {
-    return btnCancel;
-  }
-
-  /** @param btnCancel the btnCancel to set */
-  public void setBtnCancel(String btnCancel) {
-    this.btnCancel = btnCancel;
-  }
-
-  /** @return the btnClear */
-  public String getBtnClear() {
-    return btnClear;
-  }
-
-  /** @param btnClear the btnClear to set */
-  public void setBtnClear(String btnClear) {
-    this.btnClear = btnClear;
-  }
-
-  /** @return the ariaBtnSave */
-  public String getAriaBtnSave() {
-    return ariaBtnSave;
-  }
-
-  /** @param ariaBtnSave the ariaBtnSave to set */
-  public void setAriaBtnSave(String ariaBtnSave) {
-    this.ariaBtnSave = ariaBtnSave;
-  }
-
-  /** @return the ariaBtnCancel */
-  public String getAriaBtnCancel() {
-    return ariaBtnCancel;
-  }
-
-  /** @param ariaBtnCancel the ariaBtnCancel to set */
-  public void setAriaBtnCancel(String ariaBtnCancel) {
-    this.ariaBtnCancel = ariaBtnCancel;
-  }
-
-  /** @return the ariaBtnClear */
-  public String getAriaBtnClear() {
-    return ariaBtnClear;
-  }
-
-  /** @param ariaBtnClear the ariaBtnClear to set */
-  public void setAriaBtnClear(String ariaBtnClear) {
-    this.ariaBtnClear = ariaBtnClear;
-  }
-
-  /** @return the ariaInput */
-  public String getAriaInput() {
-    return ariaInput;
-  }
-
-  /** @param ariaInput the ariaInput to set */
-  public void setAriaInput(String ariaInput) {
-    this.ariaInput = ariaInput;
-  }
-
-  /** @return the ariaPalette */
-  public String getAriaPalette() {
-    return ariaPalette;
-  }
-
-  /** @param ariaPalette the ariaPalette to set */
-  public void setAriaPalette(String ariaPalette) {
-    this.ariaPalette = ariaPalette;
-  }
-
-  /** @return the ariaHue */
-  public String getAriaHue() {
-    return ariaHue;
-  }
-
-  /** @param ariaHue the ariaHue to set */
-  public void setAriaHue(String ariaHue) {
-    this.ariaHue = ariaHue;
-  }
-
-  /** @return the ariaOpacity */
-  public String getAriaOpacity() {
-    return ariaOpacity;
-  }
-
-  /** @param ariaOpacity the ariaOpacity to set */
-  public void setAriaOpacity(String ariaOpacity) {
-    this.ariaOpacity = ariaOpacity;
+  public PickrI18N setAria(PickrAria aria) {
+    this.aria = aria;
+    return this;
   }
 }
