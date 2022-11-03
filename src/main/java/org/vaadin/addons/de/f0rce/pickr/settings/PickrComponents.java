@@ -6,7 +6,6 @@ public class PickrComponents {
   private boolean preview = false;
   private boolean opacity = false;
   private boolean hue = true;
-
   private PickrInteractions interaction = new PickrInteractions();
 
   /**
@@ -19,8 +18,8 @@ public class PickrComponents {
   }
 
   /**
-   * Defines if the palette itself should be visible.</br>Will be overwritten with true if preview,
-   * opacity or hue are true.
+   * Defines if the palette itself should be visible.<br>
+   * Will be overwritten with true if preview, opacity or hue are true.
    *
    * @param palette boolean
    */

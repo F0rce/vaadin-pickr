@@ -10,6 +10,11 @@ import org.vaadin.addons.de.f0rce.pickr.events.PickrSaveEvent;
 import org.vaadin.addons.de.f0rce.pickr.util.PickrColor;
 import com.google.gson.annotations.SerializedName;
 
+/**
+ * Change the settings of {@link Pickr}.
+ *
+ * @author David "F0rce" Dodlek
+ */
 public class PickrSettings {
 
   private String theme = PickrTheme.CLASSIC.getTheme();
@@ -47,7 +52,7 @@ public class PickrSettings {
   /**
    * Which theme you want to use.
    *
-   * @param {@link PickrTheme} theme
+   * @param theme {@link PickrTheme}
    */
   public void setTheme(PickrTheme theme) {
     this.theme = theme.getTheme();
@@ -83,7 +88,8 @@ public class PickrSettings {
   }
 
   /**
-   * Size of gap between pickr (widget) and the corresponding reference (button) in px.
+   * Size of gap between {@link Pickr} (dialog) and the corresponding reference (toggle-button) in
+   * px.
    *
    * @param padding int
    */
@@ -101,7 +107,7 @@ public class PickrSettings {
   }
 
   /**
-   * If true pickr won't be floating, and instead will append after the in el resolved element.</br>
+   * If true pickr won't be floating, and instead will append after the in el resolved element.<br>
    * It's possible to hide it via {@link Pickr#hide()} anyway.
    *
    * @param inline boolean
@@ -139,9 +145,10 @@ public class PickrSettings {
   }
 
   /**
-   * Defines the direction in which the knobs of hue and opacity can be moved.</br>'v' => opacity-
-   * and hue-slider can both only moved vertically.</br>'hv' => opacity-slider can be moved
-   * horizontally and hue-slider vertically.</br>Can be used to apply custom layouts.
+   * Defines the direction in which the knobs of hue and opacity can be moved.<br>
+   * 'v' => opacity- and hue-slider can both only moved vertically.<br>
+   * 'hv' => opacity-slider can be moved horizontally and hue-slider vertically.<br>
+   * Can be used to apply custom layouts.
    *
    * @param sliders {@link String}
    */
@@ -196,8 +203,9 @@ public class PickrSettings {
   }
 
   /**
-   * Precision of output string (only effective if {@link PickrInteractions#setInput(boolean))} is
-   * true).</br>If you want to change the precision of the values in {@link PickrColor} use {@link
+   * Precision of output string (only effective if {@link PickrInteractions#setInput(boolean)} is
+   * true).<br>
+   * If you want to change the precision of the values in {@link PickrColor} use {@link
    * Pickr#setOutputPrecision(int)}.
    *
    * @param outputPrecision int
@@ -207,8 +215,8 @@ public class PickrSettings {
   }
 
   /**
-   * Returns the current set change/save behaviour.</br>See: {@link
-   * PickrSettings#setComparison(boolean)} for explanation.
+   * Returns the current set change/save behaviour.<br>
+   * See: {@link PickrSettings#setComparison(boolean)} for explanation.
    *
    * @return the comparision
    */
@@ -217,18 +225,19 @@ public class PickrSettings {
   }
 
   /**
-   * Defines change/save behavior:</br>- to keep current color in place until Save is pressed, set
-   * to `true`</br>- to apply color to button and preview (save) in sync with each change (from
-   * picker or palette), set to `false`
+   * Defines change/save behavior:<br>
+   * - to keep current color in place until save is pressed, set to `true`<br>
+   * - to apply color to button and preview (save) in sync with each change (from picker or
+   * palette), set to `false`
    *
-   * @param comparision boolean
+   * @param comparison boolean
    */
   public void setComparison(boolean comparison) {
     this.comparison = comparison;
   }
 
   /**
-   * Returns the current set defaultColor.
+   * Returns the current set default color.
    *
    * @return {@link String}
    */
@@ -257,9 +266,10 @@ public class PickrSettings {
   }
 
   /**
-   * Optional color swatches.</br>Types are all those which can be produced by pickr e.g. hex(a),
-   * hsv(a), hsl(a), rgb(a), cmyk, and also CSS color names like 'magenta'.</br>Example: ['#F44336',
-   * '#E91E63', '#9C27B0', '#673AB7'],
+   * Optional color swatches.<br>
+   * Types are all those which can be produced by pickr e.g. hex(a), hsv(a), hsl(a), rgb(a), cmyk,
+   * and also CSS color names like 'magenta'.<br>
+   * Example: ['#F44336', '#E91E63', '#9C27B0', '#673AB7'],
    *
    * @param swatches String[]
    */
@@ -295,9 +305,10 @@ public class PickrSettings {
   }
 
   /**
-   * Option to keep the color picker always visible.</br>You can still hide / show it via {@link
-   * Pickr#hide()} and {@link Pickr#show()}.</br>The save button keeps its functionality, so still
-   * fires the {@link PickrSaveEvent} when clicked.
+   * Option to keep the color picker always visible.<br>
+   * You can still hide / show it via {@link Pickr#hide()} and {@link Pickr#show()}.<br>
+   * The save button keeps its functionality, so still fires the {@link PickrSaveEvent} when
+   * clicked.
    *
    * @param showAlways boolean
    */
@@ -315,8 +326,9 @@ public class PickrSettings {
   }
 
   /**
-   * Close pickr with a keypress.</br> Default is 'Escape'. Can be the event key or code.</br>(see:
-   * https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
+   * Close pickr with a keypress.<br>
+   * Default is 'Escape'. Can be the event key or code.<br>
+   * (see: https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent/key)
    *
    * @param closeWithKey {@link String}
    */
@@ -334,8 +346,8 @@ public class PickrSettings {
   }
 
   /**
-   * Defines the position of the color-picker.</br>If clipping occurs, the color picker will
-   * automatically choose its position.
+   * Defines the position of the color-picker.<br>
+   * If clipping occurs, the color picker will automatically choose its position.
    *
    * @param position {@link PickrPosition}
    */
@@ -353,8 +365,9 @@ public class PickrSettings {
   }
 
   /**
-   * Enables the ability to change numbers in an input field with the scroll-wheel.</br>To use it
-   * set the cursor on a position where a number is and scroll, use ctrl to make steps of five
+   * Enables the ability to change numbers in an input field with the scroll-wheel.<br>
+   * To use it set the cursor on a position where a number is and scroll, use ctrl to make steps of
+   * five
    *
    * @param adjustableNumbers the adjustableNumbers to set
    */
@@ -372,8 +385,8 @@ public class PickrSettings {
   }
 
   /**
-   * Show or hide specific components.</br>By default only the palette, hue and the save button is
-   * visible.
+   * Show or hide specific components.<br>
+   * By default only the palette, hue and the save button is visible.
    *
    * @param components {@link PickrComponents}
    */

@@ -2,7 +2,11 @@ package org.vaadin.addons.de.f0rce.pickr.settings;
 
 import org.vaadin.addons.de.f0rce.pickr.Pickr;
 
-/** The I18N helper file for the {@link Pickr} component. */
+/**
+ * The I18N helper file for the {@link Pickr} component.
+ *
+ * @author David "F0rce" Dodlek
+ */
 public class PickrI18N {
   private PickrUI ui;
   private PickrButton button;
@@ -136,6 +140,7 @@ public class PickrI18N {
       return this;
     }
 
+    /** Translations used for aria-labels. */
     public static class PickrAriaButton {
       private String save;
       private String cancel;

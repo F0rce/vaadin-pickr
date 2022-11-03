@@ -1,6 +1,12 @@
 package org.vaadin.addons.de.f0rce.pickr.enums;
 
-/** @author David "F0rce" Dodlek */
+import org.vaadin.addons.de.f0rce.pickr.Pickr;
+
+/**
+ * Themes supported by {@link Pickr}.
+ *
+ * @author David "F0rce" Dodlek
+ */
 public enum PickrTheme {
   CLASSIC("classic"),
   MONOLITH("monolith"),

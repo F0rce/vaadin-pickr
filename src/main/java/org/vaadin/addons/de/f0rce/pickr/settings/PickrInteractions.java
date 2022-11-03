@@ -1,5 +1,13 @@
 package org.vaadin.addons.de.f0rce.pickr.settings;
 
+import org.vaadin.addons.de.f0rce.pickr.Pickr;
+import org.vaadin.addons.de.f0rce.pickr.enums.PickrColorRepresentation;
+
+/**
+ * Show or hide components on the bottom interaction bar.
+ *
+ * @author David "F0rce" Dodlek
+ */
 public class PickrInteractions {
 
   private boolean hex = false;
@@ -12,92 +20,168 @@ public class PickrInteractions {
   private boolean clear = false;
   private boolean save = true;
 
-  /** @return the hex */
+  /**
+   * Returns if the 'input/output format as hex' button is visible.
+   *
+   * @return boolean
+   */
   public boolean isHex() {
     return hex;
   }
 
-  /** @param hex the hex to set */
+  /**
+   * Display 'input/output format as hex' button (hexadecimal representation of the rgba value).
+   *
+   * @param boolean
+   */
   public void setHex(boolean hex) {
     this.hex = hex;
   }
 
-  /** @return the rgba */
+  /**
+   * Returns if the 'input/output format as rgba' button is visible.
+   *
+   * @return boolean
+   */
   public boolean isRgba() {
     return rgba;
   }
 
-  /** @param rgba the rgba to set */
+  /**
+   * Display 'input/output format as rgba' button (red green blue and alpha).
+   *
+   * @param rgba boolean
+   */
   public void setRgba(boolean rgba) {
     this.rgba = rgba;
   }
 
-  /** @return the hsla */
+  /**
+   * Returns if the 'input/output format as hsla' button is visible.
+   *
+   * @return boolean
+   */
   public boolean isHsla() {
     return hsla;
   }
 
-  /** @param hsla the hsla to set */
+  /**
+   * Display 'input/output format as hsla' button (hue saturation lightness and alpha).
+   *
+   * @param hsla boolean
+   */
   public void setHsla(boolean hsla) {
     this.hsla = hsla;
   }
 
-  /** @return the hsva */
+  /**
+   * Returns if the 'input/output format as hsva' button is visible.
+   *
+   * @return boolean
+   */
   public boolean isHsva() {
     return hsva;
   }
 
-  /** @param hsva the hsva to set */
+  /**
+   * Display 'input/output format as hsva' button (hue saturation value and alpha).
+   *
+   * @param hsva boolean
+   */
   public void setHsva(boolean hsva) {
     this.hsva = hsva;
   }
 
-  /** @return the cmyk */
+  /**
+   * Returns if the 'input/output format as cmyk' button is visible.
+   *
+   * @return boolean
+   */
   public boolean isCmyk() {
     return cmyk;
   }
 
-  /** @param cmyk the cmyk to set */
+  /**
+   * Display 'input/output format as cmyk' button (cyan mangenta yellow key )
+   *
+   * @param cmyk boolean
+   */
   public void setCmyk(boolean cmyk) {
     this.cmyk = cmyk;
   }
 
-  /** @return the input */
+  /**
+   * Returns if the input/output textbox is visible.
+   *
+   * @return boolean
+   */
   public boolean isInput() {
     return input;
   }
 
-  /** @param input the input to set */
+  /**
+   * Display input/output textbox which shows the selected color value.<br>
+   * The format of the input is determined by {@link PickrColorRepresentation} ({@link
+   * Pickr#setColorRepresentation(PickrColorRepresentation)}), and can be changed by the user with
+   * the buttons set by {@link #setHex(boolean)}, {@link #setRgba(boolean)}, {@link
+   * #setHsla(boolean)}, etc.
+   *
+   * @param input boolean
+   */
   public void setInput(boolean input) {
     this.input = input;
   }
 
-  /** @return the cancel */
+  /**
+   * Returns if the cancel button is visible.
+   *
+   * @return boolean
+   */
   public boolean isCancel() {
     return cancel;
   }
 
-  /** @param cancel the cancel to set */
+  /**
+   * Display cancel button, resets the color to the previous state.
+   *
+   * @param cancel boolean
+   */
   public void setCancel(boolean cancel) {
     this.cancel = cancel;
   }
 
-  /** @return the clear */
+  /**
+   * Returns if the clear button is visible.
+   *
+   * @return boolean
+   */
   public boolean isClear() {
     return clear;
   }
 
-  /** @param clear the clear to set */
+  /**
+   * Display clear button. Same as cancel, but keeps the dialog open.
+   *
+   * @param clear the clear to set
+   */
   public void setClear(boolean clear) {
     this.clear = clear;
   }
 
-  /** @return the save */
+  /**
+   * Returns if the save button is visible.
+   *
+   * @return boolean
+   */
   public boolean isSave() {
     return save;
   }
 
-  /** @param save the save to set */
+  /**
+   * Display save button.
+   *
+   * @param save boolean
+   */
   public void setSave(boolean save) {
     this.save = save;
   }

@@ -119,7 +119,9 @@ public class Pickr extends Component implements HasSize {
 
   /**
    * Parses a string which represents a color (e.g. <code>#fff</code>, <code>rgb(10, 156, 23)</code>
-   * ) or name e.g. 'magenta'. <code>null</code> will clear the color.</br></br>If <code>silent
+   * ) or name e.g. 'magenta'. <code>null</code> will clear the color.<br>
+   * <br>
+   * If <code>silent
    * </code> is true (Default is false), the button won't change the color.
    *
    * @param color {@link String}
@@ -181,9 +183,9 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * Color has changed (but not saved). Also fired on {@link
-   * PickrSwatchSelectEvent}.</br></br><b>The event is sent for every change, it could send a lot of
-   * data!</b>
+   * Color has changed (but not saved). Also fired on {@link PickrSwatchSelectEvent}.<br>
+   * <br>
+   * <b>The event is sent for every change, it could send a lot of data!</b>
    *
    * @param listener {@link ComponentEventListener}
    * @return {@link Registration}
@@ -193,7 +195,7 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * User clicked the cancel button (return to previous color).
+   * User clicked the cancel button (returns to previous color).
    *
    * @param listener {@link ComponentEventListener}
    * @return {@link Registration}
@@ -233,7 +235,7 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * Enable/Disable pickr and remove/add the <code>disabled</code> class to the button.
+   * Enable/Disable Pickr and remove/add the <code>disabled</code> class to the button.
    *
    * @param enabled boolean
    */
@@ -252,7 +254,7 @@ public class Pickr extends Component implements HasSize {
   }
 
   /**
-   * Returns the current {@link PickrColor} object.
+   * Returns the current {@link PickrColor}.
    *
    * @return {@link PickrColor}
    */
@@ -316,7 +318,7 @@ public class Pickr extends Component implements HasSize {
   /**
    * Overwrites the current swatch palette.
    *
-   * @param swatches
+   * @param swatches String[]
    */
   public void setSwatches(String... swatches) {
     this.swatches = new ArrayList<String>(Arrays.asList(swatches));

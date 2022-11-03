@@ -1,6 +1,12 @@
 package org.vaadin.addons.de.f0rce.pickr.enums;
 
-/** @author David "F0rce" Dodlek */
+import org.vaadin.addons.de.f0rce.pickr.Pickr;
+
+/**
+ * Color-representations supported by {@link Pickr}.
+ *
+ * @author David "F0rce" Dodlek
+ */
 public enum PickrColorRepresentation {
   HEX("hex"),
   RGBA("rgba"),
@@ -26,7 +32,7 @@ public enum PickrColorRepresentation {
   /**
    * Find the enum by it's {@link String} representation.
    *
-   * @param theme {@link String}
+   * @param defaultRepresentation {@link String}
    * @return {@link PickrColorRepresentation}
    */
   public static PickrColorRepresentation findByColorRepresentation(String defaultRepresentation) {

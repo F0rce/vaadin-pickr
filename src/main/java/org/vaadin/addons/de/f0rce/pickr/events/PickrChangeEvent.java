@@ -31,7 +31,7 @@ public class PickrChangeEvent extends ComponentEvent<Pickr> {
   }
 
   /**
-   * Returns the changed (but not saved) {@link PickrColor}.
+   * Returns the currently applied (but not saved) {@link PickrColor}.
    *
    * @return {@link PickrColor}
    */
@@ -40,7 +40,7 @@ public class PickrChangeEvent extends ComponentEvent<Pickr> {
   }
 
   /**
-   * Returns the current {@link PickrColorRepresentation} selected by the user.
+   * Returns the currently used {@link PickrColorRepresentation}.
    *
    * @return {@link PickrColorRepresentation}
    */

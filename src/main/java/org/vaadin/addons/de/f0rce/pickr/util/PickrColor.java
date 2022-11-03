@@ -1,6 +1,10 @@
 package org.vaadin.addons.de.f0rce.pickr.util;
 
-/** @author David "F0rce" Dodlek */
+/**
+ * Utility class for
+ *
+ * @author David "F0rce" Dodlek
+ */
 public class PickrColor {
 
   private String cmyk;
