@@ -32,7 +32,7 @@ public class PickrInteractions {
   /**
    * Display 'input/output format as hex' button (hexadecimal representation of the rgba value).
    *
-   * @param boolean
+   * @param hex boolean
    */
   public void setHex(boolean hex) {
     this.hex = hex;

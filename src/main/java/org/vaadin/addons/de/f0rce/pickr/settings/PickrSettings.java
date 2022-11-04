@@ -146,8 +146,8 @@ public class PickrSettings {
 
   /**
    * Defines the direction in which the knobs of hue and opacity can be moved.<br>
-   * 'v' => opacity- and hue-slider can both only moved vertically.<br>
-   * 'hv' => opacity-slider can be moved horizontally and hue-slider vertically.<br>
+   * 'v' ={@literal >} opacity- and hue-slider can both only moved vertically.<br>
+   * 'hv' ={@literal >} opacity-slider can be moved horizontally and hue-slider vertically.<br>
    * Can be used to apply custom layouts.
    *
    * @param sliders {@link String}
