@@ -9,7 +9,7 @@
 	<description>Lit Wrap around Pickr (https://github.com/Simonwep/pickr) for Vaadin 14+</description>
 
 	<properties>
-		<vaadin.version>23.2.6</vaadin.version>
+		<vaadin.version>23.2.8</vaadin.version>
 
 		<maven.compiler.source>11</maven.compiler.source>
 		<maven.compiler.target>11</maven.compiler.target>

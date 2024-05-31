@@ -1,5 +1,7 @@
 package org.vaadin.addons.de.f0rce.pickr;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.vaadin.addons.de.f0rce.pickr.enums.PickrColorRepresentation;
 import org.vaadin.addons.de.f0rce.pickr.enums.PickrPosition;
 import org.vaadin.addons.de.f0rce.pickr.settings.PickrI18N;
@@ -12,10 +14,13 @@ import org.vaadin.addons.de.f0rce.pickr.settings.PickrSettings;
 import com.vaadin.flow.component.UI;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.dialog.Dialog;
+import com.vaadin.flow.component.html.Label;
 import com.vaadin.flow.component.html.Paragraph;
 import com.vaadin.flow.component.icon.Icon;
 import com.vaadin.flow.component.icon.VaadinIcon;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
+import com.vaadin.flow.component.radiobutton.RadioButtonGroup;
+import com.vaadin.flow.component.radiobutton.dataview.RadioButtonGroupListDataView;
 import com.vaadin.flow.component.textfield.TextField;
 import com.vaadin.flow.dom.ThemeList;
 import com.vaadin.flow.router.Route;
@@ -25,6 +30,16 @@ import com.vaadin.flow.theme.lumo.Lumo;
 public class TestView extends VerticalLayout {
 
   public TestView() {
+
+    Label span = new Label("2 items");
+    ArrayList<String> values = new ArrayList<>(Arrays.asList("Yes", "No"));
+
+    RadioButtonGroup<String> radioGroup = new RadioButtonGroup<>();
+    radioGroup.setLabel("2 Items");
+    RadioButtonGroupListDataView<String> list = radioGroup.setItems(values);
+    radioGroup.setValue("Yes");
+    //    radioGroup.addComponentAsFirst(span);
+
     Button themeToggle =
         new Button(
             new Icon(VaadinIcon.SUN_O),
@@ -122,8 +137,21 @@ public class TestView extends VerticalLayout {
     openDialog.addClickListener(
         event -> {
           d.open();
+          values.clear();
+          values.add("None");
+          values.add("Yes");
+          values.add("No");
+          list.refreshAll();
+          radioGroup.setValue("None");
+          radioGroup.setLabel("3 items");
+          span.setText("3 items");
+          //          radioGroup.addComponentAsFirst(span);
         });
 
-    add(themeToggle, p, b, tf, openDialog, d);
+    // themeToggle, p, b, tf, openDialog, d,
+
+    TextField tf2 = new TextField();
+    tf2.setLabel("Test");
+    add(openDialog, radioGroup, tf2);
   }
 }
